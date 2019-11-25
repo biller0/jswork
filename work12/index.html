@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />    
+    <title>郑乐楷的万年历</title> 
+</head>
+<body>
+    <div class="selyear">
+        <span class="preyear" id="preyear" data-year="" onclick="setCalendar(this.dataset.year)"><<去年</span>
+        <span id="suryear"></span>
+        <span class="nextyear" id="nextyear" data-year="" onclick="setCalendar(this.dataset.year)">明年>></span>
+    </div>
+    <div class="box" id="cal"></div>
+</body>
+<script src="calendar.js"></script>
+<script src="index.js"></script>
+</html>
