@@ -1,0 +1,26 @@
+.box {
+    margin: 0 auto;
+    position: relative;
+    background: url(ms3.png);
+    background-size: cover;
+    width: 800px;
+    height: 416px;
+    
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+.box div {
+    float: left;
+    width: 80px;
+    height: 60px;
+    border: 1px solid #ccc;
+    margin-left: 5px;
+    line-height: 50px;
+    text-align: center;
+    color: rgb(161, 1, 253);
+    position: relative;
+    top: 270px;
+    left: 300px;
+}
