@@ -3,15 +3,15 @@ function send(){
     let name = document.getElementById('name').value
     let content = document.getElementById('content').value
     let xmlhttp;
-    if(window.XMLHttpRequsr){
+    if(window.XMLHttpRequest){
         xmlhttp = new XMLHttpRequest();
     }else{
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
 
-    xmlhttp.open('post','http://139.9.81.203:8090/ajax',ture)
-    xmlhttp.setRequestHeader("Content-type","qpplication/x-www-form-urlencoded");
-    xmlhttp.send('sno=' + sno +'&name=' + naem+"&content="+content)
+    xmlhttp.open('post','http://139.9.81.203:8090/ajax',true)
+    xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xmlhttp.send('sno=' + sno +'&name=' + name+"&content="+content)
 
     xmlhttp.onreadystatechange = function (){
         if(xmlhttp.readyState == 4 && xmlhttp.status == 200){

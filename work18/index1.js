@@ -21,18 +21,18 @@
             obj.onChange();
         };
     }
-    PageList.prototype.undateStatus = function(){
+    PageList.prototype.updateStatus = function(){
         this.first.disabled = (this.page <= 1);
         this.prev.disabled = (this.page <= 1);
         this.next.disabled = (this.page >= this.maxPage);
         this.last.disabled = (this.page >= this.maxPage);
-        this.pageNum.innerHTNL = this.page;
+        this.pageNum.innerHTML = this.page;
     };
 
     function Comment(obj){
         this.obj = obj;
     }
-    Comment.prototype.ajax = function(url, start, complete){
+    Comment.prototype.ajax = function(url, start, dd){
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function(){
             if(xhr.readyState === 4){
@@ -46,7 +46,7 @@
                     alert('解析服务器返回信息失败');
                     return;
                 }
-                complete(obj);
+                dd(obj);
             }
         };
         xhr.open('GET', url);
@@ -60,7 +60,9 @@
             html += data[i].time + '</li>';
             html += '<li>' + data[i].content +'</li></ul>';
         }
-        this.obj,innerHTNL = html;
+        this.obj.innerHTML = html;
+        console.log(this.obj.id)
+        console.log(this.obj.innerHTML)
     };
 
     function ProgressBar(container){
@@ -90,13 +92,13 @@
             history.pushState(null,null,'?'+str);
         },
         find: function(name){
-            var reg = new RegExp('(^\&)'+naem +'=([^&]*)(&|$)','i');
+            var reg = new RegExp('(^|&)'+name +'=([^&]*)(&|$)','i');
             var r = this.get().match(reg);
             return r ? unescape(r[2]) : null;
         },
         getPage:function(){
             var page = parseInt(this.find('page'));
-            return (isNan(page) || (page < 1)) ? 1 : page;
+            return (isNaN(page) || (page < 1)) ? 1 : page;
         }
     };
     var comment = new Comment(document.getElementById('comment'));
@@ -112,14 +114,14 @@
         pageNum: document.getElementById('page_num'),
         onChange: function(){
             comment.ajax('http://139.9.81.203:8090/ajax?page='+ this.page, function(){
-                ProgressBar = new ProgressBar(progressContainer);
-                ProgressBar.show();
+                progressBar = new ProgressBar(progressContainer);
+                progressBar.show();
             },function(obj){
                 pageList.maxPage = obj.maxPage;
-                pageList.umdateStatus();
+                pageList.updateStatus();
                 comment.create(obj.data);
                 QueryString.set('page='+ pageList.page);
-                ProgressBar.complete();
+                progressBar.complete();
             });
         }
     });
