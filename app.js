@@ -13,7 +13,7 @@ app.post('/formBuilder', function (req, res) {
   let ajaxData = []
   let count = 0
   app.post('/ajax',function(req, res) {
-    let sno = req.body.snolet 
+    let sno = req.body.sno 
     let name = req.body.name
     let content = req.body.content
    let comment = {
