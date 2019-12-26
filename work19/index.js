@@ -6,7 +6,7 @@ function connect() {
         document.getElementById('conn').disabled='disable';
         document.getElementById('disconn').disabled = '';
         let nickname= document.getElementById('nickname').value
-        if(nackname){
+        if(nickname){
             ws.send('nickname|'+nickname)
         }
 
@@ -26,10 +26,10 @@ function connect() {
 }
 
 function disconnect(){
-    ws.clone()
+    ws.close()
 }
 
 function send(){
-    let msg = document.getElementById('comtent').value
+    let msg = document.getElementById('content').value
     ws.send(msg)
 }
