@@ -10,12 +10,12 @@
 }
 .banner ul{
     margin: 0;
-    padding: 0;
+    padding:0;
     list-style: none;
 }
 .hot{
     position: absolute;
-    top: 0;
+    top:0;
     left: 0;
 }
 .hot li{
@@ -35,7 +35,8 @@
     width: 15px;
     height: 15px;
     border-radius: 100%;
-    background: rgba(145, 144, 144, 0.5);
+    background: rgba(145,144,144, .5);
+    cursor: pointer;
 }
 .dot .on{
     background-color: #fff;
@@ -44,17 +45,17 @@
     display: none;
 }
 .arrow span{
-    display: none;
+    display: block;
     width: 50px;
     height: 100px;
-    background: rgba(0, 0, 0, alph0.6);
+    background: rgba(0,0,0, .6);
     color: #fff;
     text-align: center;
     font-size: 40px;
     line-height: 100px;
     cursor: pointer;
 }
-.arrow .prew{
+.arrow .prev{
     position: absolute;
     top: 50%;
     left: 0;
@@ -63,6 +64,6 @@
 .arrow .next{
     position: absolute;
     top: 50%;
-    left: 0;
+    right: 0;
     margin-top: -50px;
 }
